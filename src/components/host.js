@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-
+import Footer from "./footer";
+import SideBar from "./sidebar/sidebar";
 function HostList() {
+    
     return (
-        <div>
+        <div style={{height:'100vh'}}>
+
             <header>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <div className="container-fluid">
                         <div className="navbar">
                             <a className="navbar-brand" href="/home">Agola</a>
@@ -19,11 +22,13 @@ function HostList() {
                             </ul>
 
                         </div>
-                    </div>
+                    </div> <SideBar />
                 </nav>
             </header>
             <body>
-                <div className="container">
+               
+                <div className="container" style={{ marginTop: '2%' }}>
+                    <h2>Danh sách nhà đang cho thuê</h2>
                     <table class="table">
                         <thead>
                             <tr>
@@ -41,7 +46,6 @@ function HostList() {
                                 <td>Hà Nội</td>
                                 <td>120000/Ngày</td>
                                 <td>
-                                    <Link to="/create"><button type="button" class="btn btn-primary" style={{ marginRight: "2%" }}>Thêm </button></Link>
                                     <Link to="/edit"><button type="button" class="btn btn-secondary" style={{ marginRight: "2%" }}>Chỉnh sửa</button></Link>
                                     <button type="button" class="btn btn-danger">Xóa</button>
                                 </td>
@@ -52,7 +56,6 @@ function HostList() {
                                 <td>Hải Phòng</td>
                                 <td>32000/ngày</td>
                                 <td>
-                                    <Link to="/create"><button type="button" class="btn btn-primary" style={{ marginRight: "2%" }}>Thêm </button></Link>
                                     <Link to="/edit"><button type="button" class="btn btn-secondary" style={{ marginRight: "2%" }}>Chỉnh sửa</button></Link>
                                     <button type="button" class="btn btn-danger">Xóa</button>
                                 </td>
@@ -63,7 +66,6 @@ function HostList() {
                                 <td>Hải Phòng</td>
                                 <td>22000/ngày</td>
                                 <td>
-                                    <Link to="/create"><button type="button" class="btn btn-primary" style={{ marginRight: "2%" }}>Thêm </button></Link>
                                     <Link to="/edit"><button type="button" class="btn btn-secondary" style={{ marginRight: "2%" }}>Chỉnh sửa</button></Link>
                                     <button type="button" class="btn btn-danger">Xóa</button>
                                 </td>
@@ -71,7 +73,11 @@ function HostList() {
                         </tbody>
                     </table>
                 </div>
+
             </body>
+            <div>
+            <Footer />
+            </div>
         </div>
     )
 }

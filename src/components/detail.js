@@ -1,9 +1,10 @@
 import "../css/detail.css"
+import Footer from "./footer";
 function Detail() {
     return (
         <div>
             <header>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                     <div className="container-fluid">
                         <div className="navbar">
                             <a className="navbar-brand" href="/home">Agola</a>
@@ -28,13 +29,13 @@ function Detail() {
                 </nav>
             </header>
 
-            <div class="blog-single gray-bg">
+            <div class="blog-single">
                 <div class="container">
-                    <div>
-                        <div className="container">
+                    <div class="row align-items-start">
+                        <div class="col-lg-8 m-15px-tb">
                             <article class="article">
-                                <div class="article-img">
-                                    <img src="https://tienganhikun.com/upload/images/house_ikun.jpg" title="" alt="" />
+                                <div class="article-img text-center">
+                                    <img class="img-fluid" src="https://tienganhikun.com/upload/images/house_ikun.jpg" title="" alt="" />
                                 </div>
                                 <div class="article-title">
                                     <h2>Tên ngôi nhà</h2>
@@ -61,33 +62,35 @@ function Detail() {
                                 </form>
                             </div>
                         </div>
-                        {/* <div class="col-lg-4 m-15px-tb blog-aside">
+                        <div class="col-lg-4 m-15px-tb blog-aside">
 
-                                <div class="widget widget-author">
-                                    <div class="widget-title">
-                                        <h3>Author</h3>
+                            <div class="widget widget-author">
+                                <div class="widget-title">
+                                    <h3>Author</h3>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="media align-items-center">
+                                        <div class="avatar">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="" />
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Tên người cho thuê </h5>
+                                        </div>
                                     </div>
-                                    <div class="widget-body">
-                                        <div class="media align-items-center">
-                                            <div class="avatar">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="" />
-                                            </div>
-                                            <div class="media-body">
-                                                <h5>Tên người cho thuê </h5>
-                                            </div>
-                                        </div>
-                                        <div class="d-grid gap-2">
-                                            <button class="btn btn-primary" type="button">Số liên hệ:</button>
-                                            <button class="btn btn-outline-dark" type="button">Chat với chủ nhà</button>
-                                            <button class="btn btn-outline-dark" type="button">Yêu cầu liên lạc lại</button>
-                                        </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="button">Số liên hệ:</button>
+                                        <button class="btn btn-outline-dark" type="button">Chat với chủ nhà</button>
+                                        <button class="btn btn-outline-dark" type="button">Yêu cầu liên lạc lại</button>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
+<div>
+    <Footer/>
+</div>
         </div>
     )
 }

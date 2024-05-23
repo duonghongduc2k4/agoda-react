@@ -2,13 +2,14 @@ import axios from "axios";
 import { Button } from "bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "./footer";
 
 export default function Home() {
 
     return (
         <div>
             <header>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                     <div className="container-fluid">
                         <div className="navbar w-100">
                             <a className="navbar-brand" href="/home">Agola</a>
@@ -44,7 +45,8 @@ export default function Home() {
                     </div>
                 </nav>
             </header>
-            <div className="search" style={{ marginBottom: "10em", marginTop: "2em" }}>
+            <img src="https://tpc.googlesyndication.com/simgad/3544258080279092339" alt="..." style={{ float: "left", position: "fixed", top: '13%', left: '2%' }} />
+            <div className="search" style={{ marginBottom: "5em", marginTop: "2em" }}>
                 <div className="container">
                     <form class="form-inline d-flex" >
                         <input class="form-control my-sm-0" style={{ width: "1198px" }} type="search" placeholder="Tìm nhà cho thuê" aria-label="Search" />
@@ -52,72 +54,95 @@ export default function Home() {
                     </form>
                 </div>
             </div>
+            <body>
+                <div className="container" style={{ borderTop: "1px solid lightgray" }} >
+                    <h2>Danh sách các nhà đang cho thuê</h2>
 
-            <div className="container" style={{ borderTop: "1px solid lightgray" }} >
-                <h2>Danh sách các nhà đang cho thuê</h2>
-                <div className="card mb-3" style={{ maxWidth: '100%' }}>
-                    <div className="row g-0">
-                        <div className="col-md-4">
-                            <img src="https://tienganhikun.com/upload/images/house_ikun.jpg" alt="..." />
+                    <div class="card" style={{ width: '18rem', float: "right" }}>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Lọc theo khoảng giá</h6>
+                            <div>
+                                <a href="#" class="card-link" style={{ textDecoration: "none", color: "black" }}>1 - 3tr</a>
+                                <br />
+                                <a href="#" class="card-link" style={{ textDecoration: "none", color: "black" }}>3 - 5tr</a>
+                                <br />
+                                <a href="#" class="card-link" style={{ textDecoration: "none", color: "black" }}>5 - 10tr</a>
+                                <br />
+                                <a href="#" class="card-link" style={{ textDecoration: "none", color: "black" }}>10 - 40tr</a>
+                                <br />
+                                <a href="#" class="card-link" style={{ textDecoration: "none", color: "black" }}>Giá thương lượng</a>
+                            </div>
                         </div>
-                        <div className="col-md-8">
-                            <Link to={"/detail"} style={{ textDecoration: "none", color: "black" }}>
-                                <div className="card-body">
-                                    <h5 className="card-title">Tên nhà</h5>
-                                    <p className="card-text">Giá (vnd)</p>
-                                    <p className="card-text"><small className="text-body-secondary">Mô tả</small></p>
+                    </div>
+
+                    <div class="bodyCard" style={{ maxWidth: "75%" }}>
+                        <div className="card mb-3">
+                            <div className="row g-0">
+                                <div className="col-md-4">
+                                    <img src="https://tienganhikun.com/upload/images/house_ikun.jpg" alt="..." />
                                 </div>
-                            </Link>
+                                <div className="col-md-8">
+                                    <Link to={"/detail"} style={{ textDecoration: "none", color: "black" }}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">Tên nhà</h5>
+                                            <p className="card-text">Giá (vnd)</p>
+                                            <p className="card-text"><small className="text-body-secondary">Mô tả</small></p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div class="card-footer text-body-secondary" style={{ display: "flex",justifyContent:"space-between" }}>
+                                    <div>
+                                        <a href="/hostInfo" style={{ textDecoration: "none", color: "black" }}>Tên chủ nhàaaaaaaaaaa</a>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-outline-info" style={{color: "black"}} >liên hệ:0977774296</button></div>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="card-footer text-body-secondary" style={{ display: "flex" }}>
-                            <a href="/hostInfo" style={{ textDecoration: "none", color: "black" }}>Tên chủ nhà</a>
-                            <button class="btn btn-outline-info" style={{ marginLeft: "79%", color: "black" }}>liên hệ:0977774296</button>
+                        <div className="card mb-3" >
+                            <div className="row g-0">
+                                <div className="col-md-4">
+                                    <img src="https://tienganhikun.com/upload/images/house_ikun.jpg" alt="..." />
+                                </div>
+                                <div className="col-md-8">
+                                    <Link to={"/detail"} style={{ textDecoration: "none", color: "black" }}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">Tên nhà</h5>
+                                            <p className="card-text">Giá (vnd)</p>
+                                            <p className="card-text"><small className="text-body-secondary">Mô tả</small></p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div class="card-footer text-body-secondary" style={{ display: "flex" }}>
+                                    <a href="/hostInfo" style={{ textDecoration: "none", color: "black" }}>Tên chủ nhà</a>
+                                    <button class="btn btn-outline-info" style={{ marginLeft: "71%", color: "black" }}>liên hệ:0977774296</button>
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
                 </div>
-                <div className="card mb-3" style={{ maxWidth: '100%' }}>
-                    <div className="row g-0">
-                        <div className="col-md-4">
-                            <img src="https://tienganhikun.com/upload/images/house_ikun.jpg" alt="..." />
-                        </div>
-                        <div className="col-md-8">
-                            <Link to={"/detail"} style={{ textDecoration: "none", color: "black" }}>
-                                <div className="card-body">
-                                    <h5 className="card-title">Tên nhà</h5>
-                                    <p className="card-text">Giá (vnd)</p>
-                                    <p className="card-text"><small className="text-body-secondary">Mô tả</small></p>
-                                </div>
-                            </Link>
-                        </div>
-                        <div class="card-footer text-body-secondary" style={{ display: "flex" }}>
-                            <a href="/hostInfo" style={{ textDecoration: "none", color: "black" }}>Tên chủ nhà</a>
-                            <button class="btn btn-outline-info" style={{ marginLeft: "79%", color: "black" }}>liên hệ:0977774296</button>
-                        </div>
-
-                    </div>
+                <div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
 
-            </div>
-
-            <div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <footer>
-
-            </footer>
+            </body>
+            <Footer />
         </div>
 
 

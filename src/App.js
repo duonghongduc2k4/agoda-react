@@ -7,6 +7,7 @@ import Edit from './components/Edit';
 import Detail from './components/detail';
 import HostList from './components/host';
 import './css/home.css'
+import logo from'./image/logo.jpg'
 function App() {
   return (
     <>
