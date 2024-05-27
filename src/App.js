@@ -6,6 +6,7 @@ import Create from './components/Create';
 import Edit from './components/Edit';
 import Detail from './components/detail';
 import HostList from './components/host';
+import Histoty from './components/rentHistory';
 import './css/home.css'
 import logo from'./image/logo.jpg'
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/edit' element={<Edit />}></Route>
         <Route path='/detail' element={<Detail />}></Route>
         <Route path='/host' element={< HostList/>}></Route>
+        <Route path='/history' element={<Histoty/>}></Route>
       </Routes>
     </>
   );

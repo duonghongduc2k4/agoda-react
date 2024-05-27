@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Footer from "./footer";
 import SideBar from "./sidebar/sidebar";
-function HostList() {
-    
+function Histoty() {
+
     return (
-        <div style={{height:'100vh'}}>
+        <div style={{ height: '100vh' }}>
 
             <header>
                 <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
@@ -26,48 +26,49 @@ function HostList() {
                 </nav>
             </header>
             <body>
-            <SideBar />
+                <SideBar />
                 <div className="container" style={{ marginTop: '2%' }}>
-                    <h2>Danh sách nhà đang cho thuê</h2>
+                    <h2>Danh sách nhà đang thuê</h2>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Thời gian</th>
                                 <th scope="col">Tên nhà</th>
+                                <th scope="col">Tổng tiền</th>
                                 <th scope="col">Địa chỉ</th>
-                                <th scope="col">Giá</th>
-                                <th scope="col">chức năng</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">14/8/2022</th>
                                 <td><Link to="/detail" style={{ textDecoration: "none", color: "black" }}>Nhà 1</Link></td>
+                                <td>1.200.000</td>
                                 <td>Hà Nội</td>
-                                <td>120000/Ngày</td>
+                                <td>Chờ nhận phòng</td>
                                 <td>
-                                    <Link to="/edit"><button type="button" class="btn btn-secondary" style={{ marginRight: "2%" }}>Chỉnh sửa</button></Link>
-                                    <button type="button" class="btn btn-danger">Xóa</button>
+                                    <button type="button" class="btn btn-danger">Hủy phòng</button>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
-                                <td><Link to="/detail" style={{ textDecoration: "none", color: "black" }}>Nhà 2</Link></td>
-                                <td>Hải Phòng</td>
-                                <td>32000/ngày</td>
+                                <th scope="row">21/5/2022</th>
+                                <td><Link to="/detail" style={{ textDecoration: "none", color: "black" }}>Nhà 1</Link></td>
+                                <td>5.300.000</td>
+                                <td>Hà Nội</td>
+                                <td>Đã trả phòng</td>
                                 <td>
-                                    <Link to="/edit"><button type="button" class="btn btn-secondary" style={{ marginRight: "2%" }}>Chỉnh sửa</button></Link>
-                                    <button type="button" class="btn btn-danger">Xóa</button>
+
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td><Link to="/detail" style={{ textDecoration: "none", color: "black" }}>Nhà 3</Link></td>
-                                <td>Hải Phòng</td>
-                                <td>22000/ngày</td>
+                                <th scope="row">2/8/2022</th>
+                                <td><Link to="/detail" style={{ textDecoration: "none", color: "black" }}>Nhà 1</Link></td>
+                                <td>1.800.000</td>
+                                <td>Hà Nội</td>
+                                <td>Đã hủy phòng</td>
                                 <td>
-                                    <Link to="/edit"><button type="button" class="btn btn-secondary" style={{ marginRight: "2%" }}>Chỉnh sửa</button></Link>
-                                    <button type="button" class="btn btn-danger">Xóa</button>
+
                                 </td>
                             </tr>
                         </tbody>
@@ -75,9 +76,9 @@ function HostList() {
                 </div>
 
             </body>
-            <div  style={{backgroundColor:"lightgray", bottom:"0", width:"100%" , position:'fixed'}}><Footer /></div>
+            <div style={{ backgroundColor: "lightgray", bottom: "0", width: "100%", position: 'fixed' }}><Footer /></div>
 
         </div>
     )
 }
-export default HostList; 
+export default Histoty; 

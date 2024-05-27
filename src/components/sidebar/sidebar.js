@@ -39,11 +39,11 @@ function SideBar() {
           Thêm nhà cho thuê
         </a>
         <a 
-          href="#clients" 
+          href="/history" 
           className={activeTab === "Clients" ? "active" : ""} 
           onClick={() => handleTabClick("Clients")}
         >
-          Clients
+          Lịch sử thuê
         </a>
         <a 
           href="#contact" 

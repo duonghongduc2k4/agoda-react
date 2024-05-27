@@ -29,9 +29,9 @@ function Create() {
                         </div>
                     </div>
                 </div>
-                <SideBar />
+                
             </nav>
-
+            <SideBar />
             <div className="container w-50 " style={{ alignContent: "center" , marginTop:"2%"}}>
 
                 <div style={{textAlign:'center' , marginBottom:"5%"}}>
@@ -107,7 +107,7 @@ function Create() {
                 </form>
 
             </div>
-            <div><Footer /></div>
+            <div  style={{backgroundColor:"lightgray", bottom:"0", width:"100%" , position:'fixed'}}><Footer /></div>
 
         </div>
     )
