@@ -1,39 +1,18 @@
 import "../css/detail.css"
 import Footer from "./footer";
+import Navbar from "./navbar";
 function Detail() {
     return (
         <div>
             <header>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }} >
-                    <div className="container-fluid">
-                        <div className="navbar">
-                            <a className="navbar-brand" href="/home">Agola</a>
-                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon" />
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                <div className="navbar-nav">
-                                    <ul class="nav nav-underline">
-                                        <li class="nav-item">
-                                            <a class="nav-link" aria-current="page" href="/home">Về trang chủ</a>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </nav>
+                <Navbar />
             </header>
 
             <div class="blog-single">
-                <div class="container">
-                    <div class="row align-items-start">
-                        <div class="col-lg-8 m-15px-tb">
-                            <article class="article">
+                <div class="container" style={{ alignItems: 'center' }}>
+                    <div class="align-items-center">
+                        <div class=" m-15px-tb">
+                            <article class="article"  style={{ borderBottom: "100px", bottom:'20%' }}>
                                 <div class="article-img text-center">
                                     <img class="img-fluid" src="https://tienganhikun.com/upload/images/house_ikun.jpg" title="" alt="" />
                                 </div>
@@ -45,8 +24,11 @@ function Detail() {
                                     Hiển thị thông tin chi tiết ngôi nhà ở đây
                                 </div>
                             </article>
-                            <div class="contact-form article-comment">
-                                <h4>Mô tả</h4>
+
+                            <div class="contact-form article-comment" >
+                                <div>
+                                    <h4 >Mô tả</h4>
+                                </div>
                                 <form id="contact-form" method="POST">
                                     <div class="row">
 
@@ -62,35 +44,13 @@ function Detail() {
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-4 m-15px-tb blog-aside">
 
-                            <div class="widget widget-author">
-                                <div class="widget-title">
-                                    <h3>Author</h3>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="media align-items-center">
-                                        <div class="avatar">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="" />
-                                        </div>
-                                        <div class="media-body">
-                                            <h5>Tên người cho thuê </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-primary" type="button">Số liên hệ:</button>
-                                        <button class="btn btn-outline-dark" type="button">Chat với chủ nhà</button>
-                                        <button class="btn btn-outline-dark" type="button">Yêu cầu liên lạc lại</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-<div>
-    <Footer/>
-</div>
+            <div>
+                <Footer />
+            </div>
         </div>
     )
 }

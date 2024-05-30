@@ -56,7 +56,7 @@
 
 /* Blog Sidebar
 -------------------*/
-.blog-aside .widget {
+/* .blog-aside .widget {
   box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
   border-radius: 5px;
   overflow: hidden;
@@ -268,12 +268,13 @@ img {
 img {
     vertical-align: middle;
     border-style: none;
-}
+} */
 
 /* Contact Us
 ---------------------*/
 .contact-name {
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 .contact-name h5 {
   font-size: 22px;
