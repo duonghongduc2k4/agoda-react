@@ -9,7 +9,7 @@ export default function Home() {
     const [search, setSearch] = useState('');
     const userName = sessionStorage.getItem('userName');
     const password = sessionStorage.getItem('password');
-    const roles = sessionStorage.getItem('roles');
+    const role = sessionStorage.getItem('role');
     const idAccount = sessionStorage.getItem('account_id');
     const checkRole = useState('')
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +24,7 @@ export default function Home() {
     function formatCurrency(amount) {
         return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
     }
+
 
     const getCurrentPageData = () => {
         const startIndex = (currentPage - 1) * itemsPage;
@@ -53,7 +54,7 @@ export default function Home() {
 
 
 
-        if (roles === 'all') {
+        if (role === 'all') {
             checkRole = null;
         }
 
@@ -88,7 +89,7 @@ export default function Home() {
 
                                     <div class="dropdown">
 
-                                        {roles === 'admin' || roles === 'host' ? (
+                                        {role === 'admin' || role === 'host' ? (
                                             <div class="btn-group dropstart">
                                                 <div>
 
