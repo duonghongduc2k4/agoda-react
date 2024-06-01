@@ -6,7 +6,7 @@
 /* Blog 
 ---------------------*/
 .blog-grid {
-  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.125);
   border-radius: 5px;
   overflow: hidden;
   background: #ffffff;
@@ -56,7 +56,7 @@
 
 /* Blog Sidebar
 -------------------*/
-/* .blog-aside .widget {
+.blog-aside .widget {
   box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
   border-radius: 5px;
   overflow: hidden;
@@ -72,7 +72,7 @@
 }
 .blog-aside .widget-title {
   padding: 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ffffff;
 }
 .blog-aside .widget-title h3 {
   font-size: 20px;
@@ -122,7 +122,7 @@
   margin-right: 10px;
 }
 .blog-aside .latest-post-aside + .latest-post-aside {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ffffff;
   padding-top: 15px;
   margin-top: 15px;
 }
@@ -140,7 +140,7 @@
   font-size: 15px;
 }
 .blog-aside .latest-post-aside .lpa-title a {
-  color: #20247b;
+  color: #000000;
   font-weight: 600;
 }
 .blog-aside .latest-post-aside .lpa-meta a {
@@ -155,7 +155,7 @@
   padding: 4px 15px;
   font-size: 13px;
   color: #ffffff;
-  background: #20247b;
+  background: #000000;
   border-radius: 3px;
   margin-right: 4px;
   margin-bottom: 4px;
@@ -170,7 +170,7 @@
 }
 
 .article {
-  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.125);
   border-radius: 5px;
   overflow: hidden;
   background: #ffffff;
@@ -178,7 +178,9 @@
   margin: 15px 0 30px;
 }
 .article .article-title {
-  padding: 15px 0 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
 }
 .article .article-title h6 {
   font-size: 14px;
@@ -191,7 +193,7 @@
   border-bottom: 1px solid #fc5356;
 }
 .article .article-title h2 {
-  color: #20247b;
+  color: #000000;
   font-weight: 600;
 }
 .article .article-title .media {
@@ -223,7 +225,7 @@
 .article .article-content h4,
 .article .article-content h5,
 .article .article-content h6 {
-  color: #20247b;
+  color: #000000;
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -250,14 +252,14 @@
 }
 
 .article-comment {
-  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.125);
   border-radius: 5px;
   overflow: hidden;
   background: #ffffff;
   padding: 20px;
 }
 .article-comment h4 {
-  color: #20247b;
+  color: #000000;
   font-weight: 700;
   margin-bottom: 25px;
   font-size: 22px;
@@ -268,7 +270,7 @@ img {
 img {
     vertical-align: middle;
     border-style: none;
-} */
+}
 
 /* Contact Us
 ---------------------*/
