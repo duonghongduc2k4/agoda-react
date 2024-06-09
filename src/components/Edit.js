@@ -1,14 +1,18 @@
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Link, useNavigate, useParams, useSearchParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
-import {useFormik} from "formik";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useFormik, validateYupSchema } from "formik";
+import "../css/create.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRectangleXmark } from '@fortawesome/free-solid-svg-icons'
+import Swal from "sweetalert2";
 import Footer from "./Footer";
-
 function Edit() {
     const navigate = useNavigate();
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState([]);
     const [typeRooms, setTypeRooms] = useState([]);
     const params = useParams();
+    const [existingImage, setExistingImage] = useState([]);
 
     // Fetch type rooms data
     useEffect(() => {
@@ -26,12 +30,16 @@ function Edit() {
 
     // Fetch existing data for editing
     useEffect(() => {
+
         async function getExistingData() {
             try {
                 const response = await axios.get(
                     `http://localhost:8080/api/house/${params.id}`
                 );
                 const existingData = response.data;
+                setExistingImage(existingData.image);
+
+
                 // Set the form values for editing
                 formEdit.setValues({
                     name: existingData.name,
@@ -45,6 +53,8 @@ function Edit() {
                         name: room.name,
                         typeId: room.typeId,
                     })),
+
+
                 });
             } catch (error) {
                 console.error("Error fetching existing data:", error);
@@ -64,7 +74,7 @@ function Edit() {
             numberOfBedRoom: "",
             numberOfBathRoom: "",
             accountId: "3", // Set default accountId or handle dynamically
-            rooms: [{name: "", typeId: ""}],
+            rooms: [{ name: "", typeId: "" }],
         },
         onSubmit: async (values) => {
             try {
@@ -76,19 +86,21 @@ function Edit() {
                 formData.append("numberOfBedRoom", values.numberOfBedRoom);
                 formData.append("numberOfBathRoom", values.numberOfBathRoom);
                 formData.append("accountId", 3);
+                for (let i = 0; i < image.lengthngth; i++) {
+                    formData.append("image", image[i]);
+                }
 
                 values.rooms.forEach((room, index) => {
                     formData.append(`rooms[${index}].name`, room.name);
                     formData.append(`rooms[${index}].typeId`, room.typeId);
                 });
 
-                formData.append("image", image);
 
                 await axios.put(
                     `http://localhost:8080/api/house/${params.id}`,
                     formData,
                     {
-                        headers: {"Content-Type": "multipart/form-data"},
+                        headers: { "Content-Type": "multipart/form-data" },
                     }
                 );
 
@@ -100,152 +112,59 @@ function Edit() {
         },
     });
 
-    // Handle image change
-    function handleImageChange(e) {
-        const file = e.target.files[0];
-        setImage(file);
-    }
 
-    const [rooms, setRooms] = useState([{name: '', typeId: ''}]);
+    const handleImageChanges = (event) => {
+        const files = Array.from(event.target.files);
+        setImage([...image, ...files]);
+    };
+
+    const handleRemoveImage = (index) => {
+        const updatedImages = [...image];
+        updatedImages.splice(index, 1);
+        setImage(updatedImages);
+    };
+
+
+    const [rooms, setRooms] = useState([{ name: '', typeId: '' }]);
     const handleAddRoom = () => {
-        setRooms([...rooms, {name: '', typeId: ''}]);
+        setRooms([...rooms, { name: '', typeId: '' }]);
     };
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <div className="navbar">
-                        <a className="navbar-brand" href="/home">Agoda</a>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"/>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div className="navbar-nav">
-                                <ul className="nav nav-underline">
-                                    <li className="nav-item">
-                                        <a className="nav-link" aria-current="page" href="/home"
-                                           style={{color: "black"}}>Trang chủ</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">On going</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">On going</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <div className="container w-50" style={{alignContent: "center"}}>
-                <div style={{textAlign: "center"}}>
+
+            <div className="container w-50" style={{ alignContent: "center" }}>
+                <div style={{ textAlign: "center" }}>
                     <h1>
                         Sửa thông tin nhà đang cho thuê
                     </h1>
                 </div>
                 <form className="row g-3" onSubmit={formEdit.handleSubmit}>
-                    <div className="col-md">
-                        <label htmlFor="inputName" className="form-label">Tên nhà</label>
-                        <input type="text" className="form-control" name="name" id="name"
-                               value={formEdit.values.name}
-                               onChange={formEdit.handleChange}/>
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="address" className="form-label">Địa chỉ</label>
-                        <input type="text" className="form-control" id="address" name="address"
-                               value={formEdit.values.address}
-                               onChange={formEdit.handleChange} placeholder="1234 Main St"/>
-                    </div>
-                    <div className="input-group">
-                        <span className="input-group-text">Số phòng ngủ</span>
-                        <input type="number" aria-label="numberOfBedRoom" id="numberOfBedRoom" name="numberOfBedRoom"
-                               className="form-control" onChange={formEdit.handleChange}
-                               value={formEdit.values.numberOfBedRoom}
-                               placeholder="Phòng ngủ"/>
-
-                    </div>
-                    <div className="input-group">
-                        <span className="input-group-text">Số phòng tắm</span>
-
-                        <input type="number" aria-label="numberOfBathRoom" id="numberOfBathRoom" name="numberOfBathRoom"
-                               className="form-control" onChange={formEdit.handleChange}
-                               value={formEdit.values.numberOfBathRoom}
-                               placeholder="Phòng tắm"/>
-                    </div>
-                    <div className="mb-3">
-                        <label for="formFileMultiple" className="form-label">Thêm ảnh</label>
-                        <input className="form-control" name="image" onChange={handleImageChange} type="file"
-                               id="formFileMultiple" multiple/>
-                    </div>
-                    <div className="input-group mb-3">
-                        <span className="input-group-text">Giá</span>
-                        <input type="text" className="form-control" id="price" name="price"
-                               value={formEdit.values.price}
-                               onChange={formEdit.handleChange} aria-label="Amount (to the nearest dollar)"/>
-                        <span className="input-group-text">.00</span>
-                    </div>
-                    {formEdit.values.rooms.map((room, index) => (
-
-                        <div key={index} className="row g-2">
-                            <div className="col-md">
-                                <div className="form-floating">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        value={room.name}
-                                        name={`rooms[${index}].name`}
-                                        id={`room.name-${index}`}
-                                        placeholder="Tên phòng"
-                                        onChange={formEdit.handleChange}
-                                    />
-                                    <label htmlFor={`room.name-${index}`}>Tên phòng</label>
-                                </div>
-                            </div>
-                            <div className="col-md">
-                                <div className="form-floating">
-                                    <select
-                                        className="form-select"
-                                        name={`rooms[${index}].typeId`}
-                                        value={room.typeId}
-                                        id={`rooms.typeId-${index}`}
-                                        onChange={formEdit.handleChange}
-                                    >
-                                        <option selected>Loại phòng</option>
-                                        {typeRooms.map((typeRoom) => (
-                                            <option key={typeRoom.id} value={typeRoom.id}>
-                                                {typeRoom.name}
-                                            </option>
-                                        ))}
-                                    </select>
-                                    <label htmlFor={`rooms.typeId-${index}`}>Chọn loại phòng</label>
-                                </div>
+                    {existingImage.length > 0 && (
+                        <div>
+                            <div className="row">
+                                {existingImage.map((image, index) => (
+                                    <div key={index} className="image">
+                                        <div className="position-relative">
+                                            <img
+                                                src={image.url} // Sử dụng URL ảnh từ database
+                                                alt={`Image ${index}`}
+                                                className="img-fluid"
+                                            />
+                                        </div>
+                                        <div>
+                                            <FontAwesomeIcon
+                                                icon={faRectangleXmark}
+                                                onClick={() => handleImageChanges(index)}
+                                                style={{ width: "100%" }}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    ))}
-                    <div className="form-floating">
-                        <textarea className="form-control" placeholder="Leave a comment here" name="description"
-                                  id="description" onChange={formEdit.handleChange}
-                                  value={formEdit.values.description}
-                                  style={{height: "100px"}}></textarea>
-                        <label for="floatingTextarea2">Mô tả</label>
-                    </div>
-
-                    <div className="col-12">
-                        <Link to={"/host"}>
-                            <button className="btn btn-outline-secondary"
-                                    style={{color: "black", marginRight: "1%"}}>Hủy
-                            </button>
-                        </Link>
-                        <button type="submit" className="btn btn-outline-primary">Sửa nhà</button>
-                    </div>
+                    )}
                 </form>
-            </div>
-            <div>
-                <Footer/>
             </div>
         </div>
     )

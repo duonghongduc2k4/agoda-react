@@ -6,11 +6,14 @@ import "../css/create.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRectangleXmark } from '@fortawesome/free-solid-svg-icons'
 import Swal from "sweetalert2";
+import Footer from "./Footer";
 
 function Create() {
     const navigate = useNavigate();
     const [image, setImage] = useState([]);
     const [typeRooms, setTypeRooms] = useState([]);
+
+
     const idAccount = sessionStorage.getItem('account_id');
     const role = sessionStorage.getItem('role');
     const username = sessionStorage.getItem('username');
@@ -82,7 +85,8 @@ function Create() {
                 formData.append("numberOfBathRoom", values.numberOfBathRoom);
                 formData.append("accountId", values.accountId);
 
-                values.rooms.forEach((room, index) => {formData.append(`rooms[${index}].name`, room.name);
+                values.rooms.forEach((room, index) => {
+                    formData.append(`rooms[${index}].name`, room.name);
                     formData.append(`rooms[${index}].typeId`, room.typeId);
                 });
 
@@ -175,37 +179,33 @@ function Create() {
 
     return (
         <div>
-            <header>
+             <div className="header" style={{position:"sticky",top:"0",zIndex:"1000"}}>
                 <nav className="navbar navbar-expand-lg bg-body-tertiary"
-                     style={{boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)"}}>
+                    style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <div className="container-fluid">
                         <div className="navbar w-100">
                             <a className="navbar-brand" href="/home">Agoda</a>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"/>
+                                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon" />
                             </button>
-                            <ul className="nav nav-underline">
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="/home">Trang chủ</a>
+                            <ul class="nav nav-underline">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/home">Trang chủ</a>
                                 </li>
 
                             </ul>
                             <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                                 <div className="navbar-nav ">
-
-                                    {/* <a className="nav-link" href="#" style={{ Left: "420%" }}>Login</a>
-                                    <p style={{ marginTop: '0.40em' }}>|</p>
-                                    <a className="nav-link" href="#">Sign in</a> */}
-
                                     <div className="dropdown">
 
                                         {role === 'admin' || role === 'host' ? (
                                             <div className="btn-group dropstart">
                                                 <div>
+
                                                     <button type="button" className="btn btn-secondary dropdown-toggle"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
                                                         {username}
                                                     </button>
                                                     <ul className="dropdown-menu">
@@ -224,16 +224,14 @@ function Create() {
                                         ) : (
                                             <div>
                                                 <button type="button" className="btn btn-secondary dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
                                                     {username}
                                                 </button>
-                                                <ul className="dropdown-menu">
-                                                    <li><a href={`/history/${idAccount}`} className="dropdown-item">Lịch
-                                                        sử
+                                                <ul class="dropdown-menu">
+                                                    <li><a href={`/history/${idAccount}`} class="dropdown-item">Lịch sử
                                                         đặt</a>
                                                     </li>
-                                                    <li><a className="dropdown-item" href="#">Chi tiết tài khoản</a>
-                                                    </li>
+                                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
                                                 </ul>
                                             </div>
                                         )}
@@ -243,7 +241,7 @@ function Create() {
                         </div>
                     </div>
                 </nav>
-            </header>
+            </div>
             <div className="container">
                 <div style={{textAlign: "center", marginTop: "5%"}}>
                     <h1>
@@ -483,20 +481,21 @@ function Create() {
                     <div className="ms-10" style={{display: "flex", justifyContent: "flex-end", paddingRight: "14%"}}>
                         <Link to={"/host"}>
                             <button className="btn btn-outline-secondary"
-                                    style={{color: "black", marginRight: "1%"}}>Hủy
+                                    style={{color:"white", marginRight: "1%",backgroundColor:"red"}}>Hủy
                             </button>
                         </Link>
-                        <button type="submit" className="btn btn-outline-primary ms-2">Thêm nhà</button>
+                        <button type="submit" className="btn btn-outline-secondary" style={{backgroundColor:"blue",color:"white", marginLeft:"1%"}}>Thêm nhà</button>
                     </div>
                 </form>
             </div>
             <footer style={{marginTop: "10%"}}>
-
+                <Footer/>
             </footer>
         </div>
 
 
-    )
+
+)
 
 }
 
