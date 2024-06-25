@@ -62,7 +62,7 @@ function HostList() {
     return (
         <div>
             <div className="header" style={{ position: "sticky", top: "0", zIndex: "1000" }}>
-            {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"
+            <nav className="navbar navbar-expand-lg bg-body-tertiary"
                     style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <div className="container-fluid">
                         <div className="navbar w-100">
@@ -120,7 +120,7 @@ function HostList() {
                             </div>
                         </div>
                     </div>
-                </nav> */}
+                </nav>
             </div>
             <body>
                 <div className="container" style={{ width: "80%" }}>

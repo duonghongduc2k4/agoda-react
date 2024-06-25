@@ -82,7 +82,8 @@ export default function Home() {
 
         <div className="body">
             <div className="header" style={{ position: "sticky", top: "0", zIndex: "1000" }}>
-                {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"
+                <nav className="navbar navbar-expand-lg bg-body-tertiary"
+                
                     style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <div className="container-fluid">
                         <div className="navbar w-100">
@@ -140,7 +141,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                </nav> */}
+                </nav>
             </div>
             <div className="navbars">
                 <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" style={{ width: "100%" }}>
