@@ -1,4 +1,4 @@
-import { Await, Link, useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
@@ -6,14 +6,13 @@ import "../css/host.css";
 function HostList() {
     const [houses, setHouses] = useState([]);
     const idAccount = sessionStorage.getItem('account_id');
-    const navigate = useNavigate();
 
     const role = sessionStorage.getItem('role');
     const username = sessionStorage.getItem('username');
 
     const filteredData = houses.filter(house => house.account.id === parseInt(idAccount));
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPage, setItemsPage] = useState(10);
+    const itemsPage = useState(10);
     const totalPages = Math.ceil(filteredData.length / itemsPage);
 
     const getCurrentPageData = () => {
@@ -46,7 +45,9 @@ function HostList() {
     async function deleteHouse(id){
         if(window.confirm("Bạn có chắc muốn xóa nhà không !")){
             const response=await axios.delete(`https://thuenha.up.railway.app/api/house/${id}`);
+            console.log(response)
          } getList();
+         
     }
 
     useEffect(() => {
@@ -61,7 +62,7 @@ function HostList() {
     return (
         <div>
             <div className="header" style={{ position: "sticky", top: "0", zIndex: "1000" }}>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary"
+            {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"
                     style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <div className="container-fluid">
                         <div className="navbar w-100">
@@ -119,7 +120,7 @@ function HostList() {
                             </div>
                         </div>
                     </div>
-                </nav>
+                </nav> */}
             </div>
             <body>
                 <div className="container" style={{ width: "80%" }}>
