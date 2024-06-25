@@ -16,13 +16,7 @@ const Footer = () => {
             </div>
             <div className="col-md-4 col-sm-6">
               <div className="footer-links">
-                <h4>Quick Links</h4>
-                <ul className="list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Products</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
+              
               </div>
             </div>
             <div className="col-md-4 col-sm-12">

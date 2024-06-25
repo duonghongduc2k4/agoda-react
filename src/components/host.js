@@ -131,7 +131,7 @@ function HostList() {
                             </button>
                         </Link>
                         <button type="button" className="btn btn-primary" style={{ marginRight: "2%" }}>
-                            <a className="dropdown-item" href={`/order/${idAccount}`}>Danh sách đăng kí thuê</a>
+                            <a className="dropdown-item" href={`    /order/${idAccount}`}>Danh sách đăng kí thuê</a>
                         </button>
                     </div>
 

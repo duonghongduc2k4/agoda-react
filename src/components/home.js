@@ -115,7 +115,7 @@ export default function Home() {
                                                         <li><a href={`/history/${idAccount}`} className="dropdown-item">Lịch
                                                             sử
                                                             đặt</a></li>
-                                                        <li><a className="dropdown-item" href="#">Chi tiết tài khoản</a>
+                                                        <li><p class="dropdown-item">Chi tiết tài khoản</p>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -131,7 +131,7 @@ export default function Home() {
                                                     <li><a href={`/history/${idAccount}`} class="dropdown-item">Lịch sử
                                                         đặt</a>
                                                     </li>
-                                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
+                                                    <li><p class="dropdown-item">Chi tiết tài khoản</p></li>
                                                 </ul>
                                             </div>
                                         )}
