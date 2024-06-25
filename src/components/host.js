@@ -61,7 +61,7 @@ function HostList() {
     return (
         <div>
             <div className="header" style={{ position: "sticky", top: "0", zIndex: "1000" }}>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary"
+            <nav className="navbar navbar-expand-lg bg-body-tertiary"
                     style={{ boxShadow: " 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <div className="container-fluid">
                         <div className="navbar w-100">
@@ -79,12 +79,10 @@ function HostList() {
                             </ul>
                             <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                                 <div className="navbar-nav ">
-                                    <div className="dropdown">
-
+                                    <div className="dropdown" >
                                         {role === 'admin' || role === 'host' ? (
                                             <div className="btn-group dropstart">
                                                 <div>
-
                                                     <button type="button" className="btn btn-secondary dropdown-toggle"
                                                         data-bs-toggle="dropdown" aria-expanded="false">
                                                         {username}
@@ -96,7 +94,7 @@ function HostList() {
                                                         <li><a href={`/history/${idAccount}`} className="dropdown-item">Lịch
                                                             sử
                                                             đặt</a></li>
-                                                        <li><a className="dropdown-item" href="#">Chi tiết tài khoản</a>
+                                                        <li><p class="dropdown-item">Chi tiết tài khoản</p>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -112,7 +110,7 @@ function HostList() {
                                                     <li><a href={`/history/${idAccount}`} class="dropdown-item">Lịch sử
                                                         đặt</a>
                                                     </li>
-                                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
+                                                    <li><p class="dropdown-item">Chi tiết tài khoản</p></li>
                                                 </ul>
                                             </div>
                                         )}
@@ -131,7 +129,7 @@ function HostList() {
                             </button>
                         </Link>
                         <button type="button" className="btn btn-primary" style={{ marginRight: "2%" }}>
-                            <a className="dropdown-item" href={`    /order/${idAccount}`}>Danh sách đăng kí thuê</a>
+                            <a className="dropdown-item" href={`/order/${idAccount}`}>Danh sách đăng kí thuê</a>
                         </button>
                     </div>
 
