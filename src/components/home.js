@@ -26,6 +26,9 @@ export default function Home() {
     const [priceTo, setPriceTo] = useState(0);
     const [status, setStatus] = useState(0);
 
+
+
+
     const handleSelectChange = (e) => {
         const [from, to] = e.target.value.split(' - ');
         setPriceFrom(parseInt(from));
@@ -59,15 +62,12 @@ export default function Home() {
         }
         return pageItems;
     };
-
     async function getList() {
         const response =
-            await axios.get(`http://localhost:8080/api/house?name=${name}&address=${address}&numberOfBedRoom=${numberOfBedRoom}&numberOfBathRoom=${numberOfBathRoom}&priceFrom=${priceFrom}&priceTo=${priceTo}&status=${status}`);
+            await axios.get(`https://thuenha.up.railway.app/api/house?name=${name}&address=${address}&numberOfBedRoom=${numberOfBedRoom}&numberOfBathRoom=${numberOfBathRoom}&priceFrom=${priceFrom}&priceTo=${priceTo}&status=${status}`);
         // console.log(response.data)
         setHouses(response.data);
-
     }
-
     useEffect(() => {
         getList()
     }, [name, address, numberOfBedRoom, numberOfBathRoom, priceFrom, priceTo, status])
@@ -76,7 +76,9 @@ export default function Home() {
         return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
     }
 
+
     return (
+        
 
         <div className="body">
             <div className="header" style={{ position: "sticky", top: "0", zIndex: "1000" }}>
@@ -249,12 +251,42 @@ export default function Home() {
                                         </div>
                                     </Link>
                                 </div>
-                                <div class="status-badge">
+
+                                <div
+                                    className="status-badge"
+                                    style={{        
+                                        backgroundColor: (() => {
+                                            console.log(houses.status.id)
+
+                                            switch (houses.status.name.toLowerCase()) {
+                                                case 'đang trống':
+                                                    return ' #E53935'; // Màu xanh lá cây
+                                                case 'đã thuê':
+                                                    return '#4CAF50'; // Màu đỏ
+                                                default:
+                                                    return '#FFEB3B'; // Màu vàng
+                                            }
+                                        })(),
+                                        color: '#FFFFFF', // Màu chữ trắng
+                                        padding: '8px 16px',
+                                        borderRadius: '20px',
+                                        display: 'inline-block',
+                                        fontSize: '14px',
+                                        fontWeight: 'bold',
+                                        textTransform: 'uppercase',
+                                        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+                                        transition: 'transform 0.2s ease-in-out',
+
+                                    }}
+                                    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                                    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'} >
+                                        
                                     {houses.status.name}
+                                    
                                 </div>
+
                             </div>
                         )}
-
                     </div>
                     <div className="right"></div>
                 </div>

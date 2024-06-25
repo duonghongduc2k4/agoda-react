@@ -23,7 +23,7 @@ function Create() {
     useEffect(() => {
         async function getTypeRooms() {
             try {
-                const response = await axios.get("http://localhost:8080/api/type-room");
+                const response = await axios.get("https://thuenha.up.railway.app/api/type-room");
                 setTypeRooms(response.data);
             } catch (error) {
                 console.error("Error fetching type rooms:", error);
@@ -94,7 +94,7 @@ function Create() {
                     formData.append("image", image[i]);
                 }
 
-                await axios.post("http://localhost:8080/api/house", formData, {
+                await axios.post("https://thuenha.up.railway.app/api/house", formData, {
                     headers: { 'Content-Type': 'multipart/form-data' },
                 });
 
@@ -301,9 +301,8 @@ function Create() {
                         <label htmlFor="inputName" className="form-label">Địa chỉ :
                             <span
                                 style={{color: 'red', marginLeft: '5px'}}>*</span></label>
-                        <label htmlFor="inputName" className="form-label" style={{marginLeft: '60%'}}>Địa chỉ :
-                            <span
-                                style={{color: 'red', marginLeft: '5px'}}>*</span></label>
+                        <label htmlFor="inputName" className="form-label" style={{marginLeft: '60%'}}> 
+                          </label>
                         <div>
                             <div className="col-12" style={{display: "flex"}}>
                                 <div style={{display: "flex", width: "66%"}}>

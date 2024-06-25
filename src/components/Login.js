@@ -27,7 +27,7 @@ function Login() {
     };
     async function Login(e) {
         e.preventDefault();
-        const reponse = await axios.post('http://localhost:8080/api/account/login', {
+        const reponse = await axios.post('https://thuenha.up.railway.app/api/account/login', {
             username: username,
             password: password
         })

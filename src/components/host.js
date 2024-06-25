@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Await, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
@@ -6,7 +6,7 @@ import "../css/host.css";
 function HostList() {
     const [houses, setHouses] = useState([]);
     const idAccount = sessionStorage.getItem('account_id');
-
+    const navigate = useNavigate();
 
     const role = sessionStorage.getItem('role');
     const username = sessionStorage.getItem('username');
@@ -40,11 +40,14 @@ function HostList() {
     };
 
     async function getList() {
-        const response = await axios.get(`http://localhost:8080/api/house`);
+        const response = await axios.get(`https://thuenha.up.railway.app/api/house`);
         setHouses(response.data)
-        console.log(idAccount)
-        console.log(houses.name)
     };
+    async function deleteHouse(id){
+        if(window.confirm("Bạn có chắc muốn xóa nhà không !")){
+            const response=await axios.delete(`https://thuenha.up.railway.app/api/house/${id}`);
+         } getList();
+    }
 
     useEffect(() => {
         getList()
@@ -53,6 +56,7 @@ function HostList() {
         return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
     }
 
+   
 
     return (
         <div>
@@ -161,9 +165,9 @@ function HostList() {
                                             >
                                                 Sửa nhà
                                             </a>
-                                            <button type="button" className="btn btn-danger btn-sm">
-                                                Xóa nhà
-                                            </button>
+                                        </td>
+                                        <td>
+                                            <Link className="btn btn-warning ml-2" onClick={()=> deleteHouse(house.id)}>Xóa</Link>
                                         </td>
                                     </tr>
                                 ))}
@@ -182,7 +186,6 @@ function HostList() {
                         <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
                             <a className="page-link" onClick={() => setCurrentPage(currentPage + 1)}>Next</a>
                         </li>
-
                     </ul>
                 </nav>
             </div>
