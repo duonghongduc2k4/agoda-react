@@ -1,30 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { date } from "yup";
 import "../css/login.css"
-import {
-    MDBContainer,
-    MDBCol,
-    MDBRow,
-    MDBBtn,
-    MDBIcon,
-    MDBInput,
-    MDBCheckbox
-}
-    from 'mdb-react-ui-kit';
+
 
 function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const value = {
-        data: {
-            username: username,
-            password: password
-        }
-    };
+
     async function Login(e) {
         e.preventDefault();
         const reponse = await axios.post('https://thuenha.up.railway.app/api/account/login', {
